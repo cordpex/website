@@ -1,0 +1,167 @@
+---
+const email = 'info@cordpex.com';
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Cordpex</title>
+    <meta
+      name="description"
+      content="Cordpex — get in touch at info@cordpex.com."
+    />
+    <link rel="canonical" href="https://cordpex.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cordpex" />
+    <meta property="og:description" content="Cordpex — get in touch at info@cordpex.com." />
+    <meta property="og:url" content="https://cordpex.com/" />
+    <meta name="twitter:card" content="summary" />
+  </head>
+
+  <body>
+    <div class="glow" aria-hidden="true"></div>
+
+    <main>
+      <h1 class="wordmark">Cordpex</h1>
+      <p class="tagline">Building what comes next.</p>
+      <p class="blurb">
+        We're putting the pieces together. There isn't much to show yet — but
+        if you want to talk, the door is open.
+      </p>
+      <a class="cta" href={`mailto:${email}`}>{email}</a>
+    </main>
+
+    <footer>
+      <span>&copy; {year} Cordpex</span>
+    </footer>
+  </body>
+</html>
+
+<style>
+  :root {
+    --bg: #0a0b0d;
+    --surface: #121418;
+    --text: #f2f3f5;
+    --muted: #8b909a;
+    --accent: #5b8cff;
+    --border: rgba(255, 255, 255, 0.1);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem 1.5rem;
+    background: var(--bg);
+    color: var(--text);
+    font-family:
+      ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+      'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-wrap: pretty;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Soft radial wash behind the content. */
+  .glow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        60rem 40rem at 50% -10%,
+        rgba(91, 140, 255, 0.18),
+        transparent 70%
+      ),
+      radial-gradient(
+        40rem 30rem at 85% 110%,
+        rgba(91, 140, 255, 0.08),
+        transparent 70%
+      );
+  }
+
+  main {
+    position: relative;
+    max-width: 34rem;
+    text-align: center;
+  }
+
+  .wordmark {
+    margin: 0;
+    font-size: clamp(2.75rem, 12vw, 5rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    background: linear-gradient(180deg, #ffffff 30%, #9aa3b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .tagline {
+    margin: 1.25rem 0 0;
+    font-size: clamp(1.05rem, 3.5vw, 1.35rem);
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .blurb {
+    margin: 1rem auto 0;
+    max-width: 28rem;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  .cta {
+    display: inline-block;
+    margin-top: 2.25rem;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition:
+      border-color 0.2s ease,
+      transform 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .cta:hover,
+  .cta:focus-visible {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  footer {
+    position: relative;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta {
+      transition: none;
+    }
+  }
+</style>
