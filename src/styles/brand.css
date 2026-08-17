@@ -1,0 +1,47 @@
+/* Cordpex brand tokens and self-hosted typefaces.
+   Colours taken from the logo artwork in the brand kit. */
+
+@font-face {
+  font-family: 'Utendo';
+  src: url('/fonts/Utendo-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Utendo';
+  src: url('/fonts/Utendo-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Satoshi ships as a variable font, so one file covers the whole weight range. */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Variable.woff2') format('woff2-variations');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Brand palette */
+  --navy: #12263f;
+  --orange: #fd6a18;
+  --cream: #f5f2eb;
+  --periwinkle: #c3c9e0;
+  --blue-muted: #7181b5;
+  --tan: #e2c293;
+
+  /* Applied roles */
+  --bg: var(--cream);
+  --text: var(--navy);
+  --text-muted: #5a6883;
+  --accent: var(--orange);
+  --rule: rgba(18, 38, 63, 0.12);
+
+  --font-display: 'Utendo', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Satoshi', ui-sans-serif, system-ui, sans-serif;
+}

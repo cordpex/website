@@ -16,6 +16,35 @@ Live at **https://cordpex.com** (and `www.cordpex.com`).
 The page has no external fonts, scripts, or images — everything is inline or in
 `public/`. That keeps it fast and avoids depending on third-party hosts.
 
+## Brand
+
+Design tokens live in `src/styles/brand.css`. Colours are taken from the logo
+artwork in the brand kit:
+
+| Token | Hex | Use |
+|---|---|---|
+| `--navy` | `#12263f` | Text, logo, primary |
+| `--orange` | `#fd6a18` | Accent only |
+| `--cream` | `#f5f2eb` | Page background |
+| `--periwinkle` / `--blue-muted` / `--tan` | `#c3c9e0` / `#7181b5` / `#e2c293` | Secondary, unused so far |
+
+Typefaces are **Utendo** (display/headings) and **Satoshi** (body, variable),
+self-hosted from `public/fonts/` — no external font CDN, so nothing leaks to a
+third party and there is no render-blocking request to another origin.
+
+The brand kit ships TrueType. The `.woff2` files in `public/fonts/` were
+converted from it, which cut them from ~200KB to ~74KB total:
+
+```bash
+npx --yes -p wawoff2 node -e "
+  const {compress}=require('wawoff2'), fs=require('fs');
+  compress(fs.readFileSync('Utendo-Bold.ttf')).then(b=>fs.writeFileSync('Utendo-Bold.woff2',b));
+"
+```
+
+Source assets (full logo set, patterns, original TTFs) are kept outside this
+repo in `../brand assets/` — they are large and not needed to build the site.
+
 ## Local development
 
 Requires **Node 22+** (Astro 7 will not run on older versions).
